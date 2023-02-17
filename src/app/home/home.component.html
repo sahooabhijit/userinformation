@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <div class="topnav">
+            <a class="active" routerLink="/">User Information</a>
+            <a routerLink="/aboutus">About Us</a>
+            <a routerLink="/contact">Contact</a>
+            <span>{{ dateVal | date:"d-MMMM-yy" }}</span>
+        </div>
+
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Company</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let info of userinfo; let index = i">
+                <td>{{ info.name }}</td>
+                <td>{{ info.username }}</td>
+                <td>{{ info.email }}</td>
+                <td>{{ info.address.suite +', '+ info.address.street +', '+ info.address.city +', '+ info.address.zipcode }}</td>
+                <!-- <td>{{ info.address | json }}</td> -->
+                <td>{{ info.phone }}</td>
+                <td>{{ info.company.name }}</td>
+                <!-- <td>{{ info.company | json }}</td> -->
+              </tr>
+            </tbody>
+          </table>
+          
+    </body>
+</html>
